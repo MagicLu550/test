@@ -45,9 +45,9 @@ abstract class DSLParser {
                             }
                         }
                 }
-                print name
-                print Arrays.toString(stack)
-                print(nowName)
+                println name
+                println Arrays.toString(stack)
+                println nowName
                 for(int i = allNames.size()-1;i>=0;i--){
                     nowName.append(allNames[i]).append(".")
                 }
