@@ -47,6 +47,7 @@ abstract class DSLParser {
                 for(int i = allNames.size()-1;i>=0;i--){
                     nowName.append(allNames[i]).append(".")
                 }
+                println nowName
                 nowName = nowName.substring(0,nowName.lastIndexOf("."))
                 entry["${nowName}.${name}"] = args
         }
