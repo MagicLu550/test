@@ -13,7 +13,7 @@ public class Test extends DSLParser {
     }
 
     public static void main(String[] args) {
-        Test t = new Test(new File("server.cfg"));
+        Test t = new Test(new File("server.groovy"));
     }
 
     /**
