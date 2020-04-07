@@ -31,7 +31,8 @@ abstract class DSLParser {
             String name,args->
                 def nowName = new StringBuilder()
                 def allNames = []
-                new Throwable().stackTrace.toList().each{
+                def stack = new Throwable().stackTrace
+                stack.toList().each{
                     x->
                         if(x.toString().startsWith(this.class.name)){
                             def strs = x.toString().split("\\.")
@@ -44,6 +45,9 @@ abstract class DSLParser {
                             }
                         }
                 }
+                print name
+                print Arrays.toString(stack)
+                print(nowName)
                 for(int i = allNames.size()-1;i>=0;i--){
                     nowName.append(allNames[i]).append(".")
                 }
