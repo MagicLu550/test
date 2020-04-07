@@ -37,6 +37,7 @@ abstract class DSLParser {
                             def strs = x.toString().split("\\.")
                             def str = strs[strs.length-2]
                             println str
+                            println str.indexOf("(")
                             str = str.substring(0,str.indexOf("("))
                             if(!(str == "doCall")&&!(str == "<init>")&&!(str == "main")){
                                 allNames.add(str)
