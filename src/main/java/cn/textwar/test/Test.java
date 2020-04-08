@@ -20,7 +20,7 @@ public class Test extends DSLParser {
      * server标签，为根标签
      */
     @DSLMethod
-    public void ser(Closure closure){
+    public void server(Closure closure){
         closure.call();
     }
 

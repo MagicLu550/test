@@ -37,21 +37,15 @@ abstract class DSLParser {
                         if(x.toString().startsWith(this.class.name)){
                             def strs = x.toString().split("\\.")
                             def str = strs[strs.length-2]
-                            println str
-                            println str.indexOf("(")
                             str = str.substring(0,str.indexOf("("))
                             if(!(str == "doCall")&&!(str == "<init>")&&!(str == "main")){
                                 allNames.add(str)
                             }
                         }
                 }
-                println name
-                println Arrays.toString(stack)
-                println nowName
                 for(int i = allNames.size()-1;i>=0;i--){
                     nowName.append(allNames[i]).append(".")
                 }
-                println nowName
                 nowName = nowName.substring(0,nowName.lastIndexOf("."))
                 entry["${nowName}.${name}"] = args
         }
@@ -89,6 +83,7 @@ abstract class DSLParser {
         this.class.methods.toList().each{
             x->
                 if(x.getAnnotation(DSLMethod.class)){
+                    println x
                     this.methodMap[x.name] = x
                     this.fileClass.metaClass."${x.name}" = {
                         Closure closure->
